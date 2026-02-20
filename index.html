@@ -5,34 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram</title>
     <style>
-        /* 기본 레이아웃 설정 */
         body { background-color: #ffffff; margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
         
-        /* 1. 상단 화살표 및 언어 선택 (디테일 수정) */
+        /* 상단 바 및 언어 */
         .top-bar { width: 100%; padding: 18px 20px; display: flex; align-items: center; justify-content: flex-start; box-sizing: border-box; }
         .back-arrow { font-size: 26px; font-weight: 300; cursor: pointer; color: #000; }
         .language-container { color: #737373; font-size: 13px; margin: 15px 0 45px 0; cursor: pointer; display: flex; align-items: center; gap: 4px; }
-        .lang-arrow { font-size: 10px; transform: scaleX(1.2); } /* 원본 특유의 브이 표기 구현 */
+        .lang-arrow { font-size: 10px; transform: scaleX(1.2); }
 
-        /* 2. 메인 컨테이너 및 로고 (원본 아이콘 적용) */
+        /* 메인 컨테이너 및 로고 수정 */
         .container { width: 100%; max-width: 360px; padding: 0 32px; box-sizing: border-box; text-align: center; flex-grow: 1; }
-        .logo-img { width: 72px; height: 72px; margin-bottom: 45px; } /* 원본 비율에 맞춘 크기 */
+        .logo-img { width: 64px; height: 64px; margin-bottom: 40px; } /* 로고 크기 미세 조정 */
 
-        /* 3. 입력창 및 버튼 (폰트 크기 미세 조정) */
-        input { width: 100%; padding: 14px 16px; margin-bottom: 12px; border: 1px solid #dbdbdb; border-radius: 14px; background-color: #ffffff; box-sizing: border-box; font-size: 14.5px; color: #262626; }
-        input::placeholder { color: #737373; font-size: 15px; } /* 원본과 동일한 플레이스홀더 크기 */
+        /* 입력창 및 로그인 버튼 */
+        input { width: 100%; padding: 14px 16px; margin-bottom: 12px; border: 1px solid #dbdbdb; border-radius: 12px; background-color: #ffffff; box-sizing: border-box; font-size: 14.5px; color: #262626; }
+        input::placeholder { color: #737373; font-size: 15px; }
         
         .btn-login { width: 100%; background-color: #0064e0; color: white; border: none; padding: 11px; border-radius: 25px; font-weight: 600; cursor: pointer; font-size: 15.5px; margin-top: 6px; }
         .btn-login:disabled { opacity: 0.6; }
         
-        .forgot-pw { color: #000000; font-size: 14.5px; font-weight: 600; text-decoration: none; margin-top: 24px; display: block; letter-spacing: -0.2px; }
+        .forgot-pw { color: #000000; font-size: 14.5px; font-weight: 600; text-decoration: none; margin-top: 24px; display: block; }
 
-        /* 4. 하단 섹션 (Meta 마크 및 로고 수정) */
-        .bottom-section { width: 100%; max-width: 360px; padding: 20px 32px 30px 32px; box-sizing: border-box; text-align: center; }
-        .btn-signup { width: 100%; background-color: transparent; color: #0064e0; border: 1.2px solid #0064e0; padding: 10px; border-radius: 25px; font-weight: 600; cursor: pointer; font-size: 15px; margin-bottom: 28px; }
+        /* 하단 섹션 (Meta 수정 반영) */
+        .bottom-section { width: 100%; max-width: 360px; padding: 20px 32px 40px 32px; box-sizing: border-box; text-align: center; }
+        .btn-signup { width: 100%; background-color: transparent; color: #0064e0; border: 1.2px solid #0064e0; padding: 10px; border-radius: 25px; font-weight: 600; cursor: pointer; font-size: 15px; margin-bottom: 20px; }
         
-        .meta-footer { color: #737373; font-size: 13px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
-        .meta-logo-img { width: 68px; filter: grayscale(1) opacity(0.6); margin-top: 2px; } /* 파란색 제거, 흑백 Meta 로고 적용 */
+        .meta-footer { display: flex; flex-direction: column; align-items: center; }
+        .meta-logo-img { width: 65px; filter: grayscale(1) opacity(0.5); } /* 흑백 Meta 로고 하나만 표시 */
     </style>
 </head>
 <body>
@@ -43,7 +42,7 @@
     </div>
 
     <div class="container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram" class="logo-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" alt="Instagram" class="logo-img">
         
         <form id="loginForm">
             <input type="text" id="id" placeholder="사용자 이름, 이메일 주소 또는 휴대폰 번호" required>
@@ -57,7 +56,6 @@
     <div class="bottom-section">
         <button class="btn-signup">새 계정 만들기</button>
         <div class="meta-footer">
-            <span>Meta</span>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1280px-Meta_Platforms_Inc._logo.svg.png" alt="Meta" class="meta-logo-img">
         </div>
     </div>
