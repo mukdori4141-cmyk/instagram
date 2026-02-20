@@ -15,7 +15,6 @@
             min-height: 100vh;
         }
 
-        /* 상단 언어 선택 */
         .language-container {
             margin-top: 20px;
             color: #8e8e8e;
@@ -79,7 +78,6 @@
             display: block;
         }
 
-        /* 하단 버튼 및 Meta 섹션 */
         .bottom-section {
             width: 100%;
             max-width: 350px;
@@ -101,24 +99,22 @@
             cursor: pointer;
         }
 
-        /* [핵심 수정] Meta 아이콘과 글자 100% 동일하게 한 줄 정렬 */
+        /* [핵심] 중복 글자 제거하고 사진과 똑같이 한 줄 정렬 */
         .meta-footer {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px; /* 아이콘과 글자 사이 간격 */
+            gap: 4px; /* 로고와 글자 사이 간격 */
         }
         .meta-icon {
-            width: 20px; /* 사진 속 아이콘 크기 */
-            height: auto;
+            width: 18px; /* 사진 속 아이콘 크기 */
             filter: grayscale(1);
-            opacity: 0.5; /* 사진처럼 연한 회색 */
+            opacity: 0.5; /* 연한 회색 */
         }
         .meta-text {
             color: #8e8e8e; /* 사진 속 글자 색상 */
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 500;
-            letter-spacing: -0.5px;
         }
     </style>
 </head>
