@@ -8,16 +8,17 @@
         body { background-color: #ffffff; margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 0 20px; box-sizing: border-box; }
         .language-container { margin-top: 25px; color: #8e8e8e; font-size: 14px; display: flex; align-items: center; gap: 5px; }
         .main-container { width: 100%; max-width: 350px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
-        /* [핵심] 가운데가 비어있는 최신 로고 */
         .logo-img { width: 75px; height: 75px; margin: 0 auto 40px auto; display: block; }
         input { width: 100%; padding: 13px 15px; margin-bottom: 12px; border: 1px solid #dbdbdb; border-radius: 8px; background-color: #fafafa; box-sizing: border-box; font-size: 14px; }
         .btn-login { width: 100%; background-color: #0064e0; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 15px; margin-top: 10px; }
         .forgot-pw { color: #00376b; font-size: 13px; font-weight: 500; text-decoration: none; margin-top: 20px; display: block; }
         .bottom-section { width: 100%; max-width: 350px; padding-bottom: 30px; display: flex; flex-direction: column; align-items: center; }
         .btn-signup { width: 100%; background-color: transparent; color: #0064e0; border: 1px solid #0064e0; padding: 10px; border-radius: 50px; font-weight: 600; cursor: pointer; font-size: 15px; margin-bottom: 25px; }
-        /* [핵심] Meta 아이콘과 글자 한 줄로 */
-        .meta-footer { display: flex; align-items: center; justify-content: center; gap: 5px; color: #8e8e8e; font-size: 14px; }
-        .meta-icon { width: 22px; filter: grayscale(1); opacity: 0.6; }
+        
+        /* [수정] Meta를 사진처럼 한 줄로! */
+        .meta-footer { display: flex; align-items: center; justify-content: center; gap: 5px; color: #8e8e8e; }
+        .meta-icon { width: 16px; height: 16px; filter: grayscale(1); opacity: 0.6; }
+        .meta-text { font-size: 15px; font-weight: 500; }
     </style>
 </head>
 <body>
