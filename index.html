@@ -5,43 +5,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram</title>
     <style>
-        body { background-color: #ffffff; margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
-        
-        /* 상단 바 */
-        .top-bar { width: 100%; padding: 14px 18px; display: flex; align-items: center; box-sizing: border-box; }
-        .back-arrow { font-size: 26px; cursor: pointer; color: #000; font-weight: 300; }
-        
-        /* 언어 선택 */
-        .language-container { color: #8e8e8e; font-size: 13px; margin: 5px 0 45px 0; display: flex; align-items: center; gap: 4px; cursor: pointer; }
-        .lang-arrow { font-size: 10px; transform: scaleX(1.4); }
+        body {
+            background-color: #ffffff;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh; /* 화면 전체 높이 사용 */
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
 
-        /* 메인 로고: 상준님이 주신 2025-26 최신 버전 */
-        .container { width: 100%; max-width: 360px; padding: 0 35px; box-sizing: border-box; text-align: center; flex-grow: 1; }
-        .logo-img { width: 78px; height: 78px; margin-bottom: 42px; object-fit: contain; }
+        /* 1. 상단 언어 선택 (가운데 정렬) */
+        .language-container {
+            margin-top: 25px;
+            color: #8e8e8e;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .lang-arrow { font-size: 12px; }
 
-        /* 입력창 및 로그인 버튼 */
-        input { width: 100%; padding: 14px 16px; margin-bottom: 12px; border: 1px solid #dbdbdb; border-radius: 12px; background-color: #fafafa; box-sizing: border-box; font-size: 14.5px; outline: none; }
-        input::placeholder { color: #8e8e8e; font-size: 15px; }
-        
-        .btn-login { width: 100%; background-color: #0064e0; color: white; border: none; padding: 12px; border-radius: 50px; font-weight: 600; cursor: pointer; font-size: 15.5px; margin-top: 6px; }
-        
-        .forgot-pw { color: #000000; font-size: 14.5px; font-weight: 600; text-decoration: none; margin-top: 25px; display: block; }
+        /* 메인 컨테이너 */
+        .main-container {
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            flex-grow: 1; /* 남은 공간 차지해서 하단 요소 밀어내기 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 수직 중앙 정렬 */
+        }
 
-        /* 하단 Meta 섹션: 중복 코드 제거 */
-        .bottom-section { width: 100%; max-width: 360px; padding: 20px 35px 40px 35px; box-sizing: border-box; text-align: center; }
-        .btn-signup { width: 100%; background-color: transparent; color: #0064e0; border: 1.2px solid #0064e0; padding: 10px; border-radius: 50px; font-weight: 600; cursor: pointer; font-size: 15px; margin-bottom: 30px; }
-        
-        .meta-footer { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-        .meta-text { color: #8e8e8e; font-size: 13px; font-weight: 500; }
-        .meta-logo-img { width: 68px; filter: grayscale(1); opacity: 0.35; } 
+        /* 2. 로고: 가운데가 빈 최신형 그라데이션 로고 */
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 40px auto; /* 상하 여백 조정 */
+            display: block;
+        }
+
+        /* 입력창 스타일 */
+        input {
+            width: 100%;
+            padding: 13px 15px;
+            margin-bottom: 12px;
+            border: 1px solid #dbdbdb;
+            border-radius: 8px; /* 사진과 같은 둥근 모서리 */
+            background-color: #fafafa;
+            box-sizing: border-box;
+            font-size: 14px;
+            outline: none;
+        }
+        input::placeholder { color: #8e8e8e; }
+
+        /* 로그인 버튼 (파란색) */
+        .btn-login {
+            width: 100%;
+            background-color: #0064e0;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px; /* 입력창과 같은 둥근 모서리 */
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 15px;
+            margin-top: 10px;
+        }
+
+        /* 비밀번호 찾기 링크 */
+        .forgot-pw {
+            color: #00376b;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            margin-top: 20px;
+            display: block;
+        }
+
+        /* 3. 하단 섹션: 새 계정 버튼 및 Meta */
+        .bottom-section {
+            width: 100%;
+            max-width: 350px;
+            padding-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 새 계정 만들기 버튼 (투명 배경, 파란 테두리, 완전 둥글게) */
+        .btn-signup {
+            width: 100%;
+            background-color: transparent;
+            color: #0064e0;
+            border: 1px solid #0064e0;
+            padding: 10px;
+            border-radius: 50px; /* 완전 둥근 캡슐 모양 */
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        /* Meta 푸터: 옆으로 나란히 정렬 */
+        .meta-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            color: #8e8e8e;
+            font-size: 14px;
+        }
+        /* Meta 아이콘 (회색 처리) */
+        .meta-icon {
+            width: 22px;
+            filter: grayscale(1);
+            opacity: 0.6;
+        }
+        /* Meta 텍스트 */
+        .meta-text {
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
-    <div class="top-bar"><span class="back-arrow">←</span></div>
-    <div class="language-container">한국어 <span class="lang-arrow">∨</span></div>
+    <div class="language-container">
+        한국어 <span class="lang-arrow">∨</span>
+    </div>
 
-    <div class="container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" alt="Instagram" class="logo-img">
+    <div class="main-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram" class="logo-img">
         
         <form id="loginForm">
             <input type="text" id="id" placeholder="사용자 이름, 이메일 주소 또는 휴대폰 번호" required>
@@ -53,9 +149,10 @@
 
     <div class="bottom-section">
         <button type="button" class="btn-signup">새 계정 만들기</button>
+        
         <div class="meta-footer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/64px-Meta_Platforms_Inc._logo.svg.png" alt="" class="meta-icon">
             <span class="meta-text">Meta</span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1280px-Meta_Platforms_Inc._logo.svg.png" alt="Meta" class="meta-logo-img">
         </div>
     </div>
 
