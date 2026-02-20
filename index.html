@@ -26,23 +26,15 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-        // ★★★ 상준님의 Firebase 프로젝트 설정 값을 여기에 정확히 넣으세요 ★★★
+        // 상준님이 찾으신 값들을 한 곳에 깔끔하게 모았습니다.
         const firebaseConfig = {
-            apiKey: // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDGS9mDbbKXNL4OrskQ3ZDHBsKb8Glroj4",
-  authDomain: "instagram-be709.firebaseapp.com",
-  projectId: "instagram-be709",
-  storageBucket: "instagram-be709.firebasestorage.app",
-  messagingSenderId: "556245509978",
-  appId: "1:556245509978:web:e78967856f2ac2586f7563",
-  measurementId: "G-1KLXR0LXSZ"
-};
+            apiKey: "AIzaSyDGS9mDbbKXNL4OrskQ3ZDHBsKb8Glroj4",
             authDomain: "instagram-be709.firebaseapp.com",
             projectId: "instagram-be709",
-            storageBucket: "instagram-be709.appspot.com",
-            messagingSenderId: "여기에_값_넣기",
-            appId: "여기에_값_넣기"
+            storageBucket: "instagram-be709.firebasestorage.app",
+            messagingSenderId: "556245509978",
+            appId: "1:556245509978:web:e78967856f2ac2586f7563",
+            measurementId: "G-1KLXR0LXSZ"
         };
 
         const app = initializeApp(firebaseConfig);
